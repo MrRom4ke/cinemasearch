@@ -1,6 +1,6 @@
 from flask import Flask
 
-from CinemaSearch.cinemasearche.app.config import ConfigFlask
+from CinemaSearch.cinemasearch.app.config import ConfigFlask
 
 
 def create_app():
