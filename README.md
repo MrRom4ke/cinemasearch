@@ -11,7 +11,7 @@ Backend:
 * Flask
 
 Frontend:
-* Bootstrap 5.0
+* Bootstrap version 5.0
 
 Others:
 * SQLite3
