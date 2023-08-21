@@ -8,7 +8,7 @@ The project is currently running on the following versions:
 
 Backend:
 * Python 3.11
-* Flask 2.3.2
+* Flask 2.3.2gi
 
 Frontend:
 * Bootstrap 5.0
