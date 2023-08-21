@@ -15,3 +15,4 @@ Frontend:
 
 Others:
 * SQLite3
+* Flask SQL Alchemy
