@@ -8,10 +8,10 @@ The project is currently running on the following versions:
 
 Backend:
 * Python 3.11
-* Flask
+* Flask 2.3.2
 
 Frontend:
-* Bootstrap version 5.0
+* Bootstrap 5.0
 
 Others:
 * SQLite3
