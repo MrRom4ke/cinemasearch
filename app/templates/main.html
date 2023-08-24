@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+     body {background-color: #000000}
+</style>
+      <link type="text/css" href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="header"></div>
+<header>Cinemasearch</header>
+</div>
+
+<!-- Side navigation -->
+<div class="sidenav">
+  <a href="{{url_for('main')}}">Главная</a>
+  <a href="{{url_for('film')}}">Фильмы</a>
+  <a href="{{url_for('serial')}}">Сериалы</a>
+  <a href="{{url_for('kabinet')}}">Личный кабинет</a>
+</div>
+
+<!-- Page content -->
+<div class="main">
+
+    <!-- Load icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- The form -->
+<form class="example" action="action_page.php">
+  <input type="text" placeholder="Search.." name="search">
+  <button type="submit"><i class="fa fa-search"></i></button>
+</form>
+
+</div>
+
+<!--<div style="width: 200px; height: 200px; margin-left: 380px">-->
+<!--    <img src="app/static/image/123.png">-->
+<!--</div>-->
+
+</body>
+</html>
