@@ -1,25 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <style>
-     body {background-color: #000000}
-</style>
-      <link type="text/css" href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<div id="header"></div>
+{% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+
+<div id="header">
 <header>Cinemasearch</header>
 </div>
 
-<!-- Side navigation -->
-<div class="sidenav">
-  <a href="{{url_for('main')}}">Главная</a>
-  <a href="{{url_for('film')}}">Фильмы</a>
-  <a href="{{url_for('serial')}}">Сериалы</a>
-  <a href="{{url_for('kabinet')}}">Личный кабинет</a>
-</div>
+
 
 <!-- Page content -->
 <div class="main">
@@ -35,9 +23,11 @@
 
 </div>
 
-<!--<div style="width: 200px; height: 200px; margin-left: 380px">-->
-<!--    <img src="app/static/image/123.png">-->
-<!--</div>-->
+<div class="scroll-container">
+  <img src="CinemaSearch/cinemasearch/app/static/image/img1.png" alt="Cinque Terre">
+  <img src="CinemaSearch/cinemasearch/app/static/image/img2.png" alt="Forest">
+  <img src="CinemaSearch/cinemasearch/app/static/image/img3.png" alt="Northern Lights">
+  <img src="CinemaSearch/cinemasearch/app/static/image/img4.png" alt="Mountains">
+</div>
 
-</body>
-</html>
+{% endblock content %}
