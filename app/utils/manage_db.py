@@ -30,6 +30,23 @@ def init_db():
             );
         ''')
 
+        # Создание меню
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS menu (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            title TEXT NOT NULL,
+            url TEXT NOT NULL
+            );
+        ''')
+
+        # Создание рубрик
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS rubric (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            title TEXT NOT NULL
+            );
+        ''')
+
         # Выполнение других запросов
 
         conn.commit()
