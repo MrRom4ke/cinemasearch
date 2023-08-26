@@ -3,7 +3,7 @@ import sqlite3
 import time
 
 
-class FDataBase:
+class RegisterBase:
     def __init__(self, db):
         self.__db = db
         self.__cur = db.cursor()
