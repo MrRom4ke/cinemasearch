@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <style>
+     body {background-color: #000000}
+</style>
+  <link type="text/css" href="{{ url_for('static', filename='CinemaSearch/cinemasearch/app/static/css/style.css') }}" rel="stylesheet">
+    <meta charset="UTF-8">
+</head>
+<body>
+<div id="header">
+<header>Cinemasearch</header>
+</div>
+{% block content %}
+  {% block menu %}
+    <ul class="sidenav">
+      {% for elem in menu %}
+      <li><a href="{{ elem.url }}">{{ elem.title }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endblock menu %}
+{% endblock content  %}
+</body>

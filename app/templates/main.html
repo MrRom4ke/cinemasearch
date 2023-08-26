@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+
+<div id="header">
+<header>Cinemasearch</header>
+</div>
+
+
+
+<!-- Page content -->
+<div class="main">
+
+    <!-- Load icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- The form -->
+<form class="example" action="action_page.php">
+  <input type="text" placeholder="Search.." name="search">
+  <button type="submit"><i class="fa fa-search"></i></button>
+</form>
+
+</div>
+
+<div class="scroll-container">
+  <img src="CinemaSearch/cinemasearch/app/static/image/img1.png" alt="Cinque Terre">
+  <img src="CinemaSearch/cinemasearch/app/static/image/img2.png" alt="Forest">
+  <img src="CinemaSearch/cinemasearch/app/static/image/img3.png" alt="Northern Lights">
+  <img src="CinemaSearch/cinemasearch/app/static/image/img4.png" alt="Mountains">
+</div>
+
+{% endblock content %}
