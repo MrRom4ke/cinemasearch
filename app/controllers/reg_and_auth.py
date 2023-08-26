@@ -2,8 +2,8 @@ from flask import Flask, request, render_template, flash
 from werkzeug.security import generate_password_hash
 
 
-@app.route('/register', methods=['POST', 'GET'])
 def register():
+    """Обработчик страницы регистрации"""
     if request.method == 'POST':
         if request.form['name'] and request.form['email'] and request.form['psw'] == request.form['psw2']:
             hash = generate_password_hash(request.form['psw'])
