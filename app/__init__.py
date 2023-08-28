@@ -1,5 +1,8 @@
-from flask import Flask
+from flask import Flask, g
 from .config import ConfigFlask
+from .utils.manage_db import DatabaseManager
+from .models.users import UsersRepo
+from .models.menu import MenuRepo
 from .routes import add_routes
 
 
@@ -11,6 +14,27 @@ def create_app():
     """
     app = Flask(__name__, static_url_path='', template_folder='templates', static_folder='static')
     app.config.from_object(ConfigFlask)
-    add_routes(app)
+
+    with app.app_context():
+        # Добавляем маршруты
+        add_routes(app)
+
+        # Добавляем менеджер для работы с БД
+        manager_db = DatabaseManager(ConfigFlask.DATABASE_PATH)
+
+        # Добавляем репозитории с объектом БД
+        users_repo = UsersRepo(manager_db)
+        menu_repo = MenuRepo(manager_db)
+
+        @app.before_request
+        def before_request():
+            """Установка соединения с БД перед запросом"""
+            g.users_repo = users_repo
+            g.menu_repo = menu_repo
+
+        @app.teardown_appcontext
+        def close_db(error):
+            """Закрываем соединение с БД, если оно было установлено"""
+            manager_db.close()
 
     return app

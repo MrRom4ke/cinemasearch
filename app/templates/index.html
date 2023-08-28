@@ -1,10 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Hello world!</title>
-</head>
-<body>
-Hello World!
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+{{ super() }}
+
+<!-- Добавьте заголовок страницы -->
+<title>Main Page</title>
+
+<div class="row">
+    <!-- Левая колонка (Меню) -->
+    <div class="col-md-2">
+        {% block menu %}
+        <!-- Ваше меню здесь -->
+        {% endblock menu %}
+    </div>
+
+    <!-- Слайдер с категорией фильмов -->
+    <div class="col-md-10">
+        <div id="movie-carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <h1>Новинки</h1>
+                <!-- Первые 5 фильмов -->
+                <div class="carousel-item active">
+                    <div class="row">
+                        <!-- Фильм 1 -->
+                        <div class="col-md-2">
+                            <img src="movie1.jpg" alt="Movie 1">
+                            <p>Movie 1</p>
+                        </div>
+                        <!-- Фильм 2 -->
+                        <div class="col-md-2">
+                            <img src="movie2.jpg" alt="Movie 2">
+                            <p>Movie 2</p>
+                        </div>
+                        <!-- Фильм 3 -->
+                        <div class="col-md-2">
+                            <img src="movie3.jpg" alt="Movie 3">
+                            <p>Movie 3</p>
+                        </div>
+                        <!-- Фильм 4 -->
+                        <div class="col-md-2">
+                            <img src="movie4.jpg" alt="Movie 4">
+                            <p>Movie 4</p>
+                        </div>
+                        <!-- Фильм 5 -->
+                        <div class="col-md-2">
+                            <img src="movie5.jpg" alt="Movie 5">
+                            <p>Movie 5</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Стрелки переключения слайдов -->
+            <a class="carousel-control-prev" href="#movie-carousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#movie-carousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
