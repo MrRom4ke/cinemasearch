@@ -1,8 +1,5 @@
 import sqlite3
 
-from flask import g
-from ..config import ConfigFlask
-
 
 class DatabaseManager:
     def __init__(self, database_uri):

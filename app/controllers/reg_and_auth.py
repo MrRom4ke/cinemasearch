@@ -12,5 +12,5 @@ def register_view():
                 flash('Зарегистрирован', 'success')
         else:
             flash('Не все данные введены верно', 'error')
-    return render_template('register.html', title='Registration')
+    return render_template('register.html', menu=g.menu_repo.get_menu(), title='Registration')
 

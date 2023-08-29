@@ -1,7 +1,10 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 {% block content %}
 {{ super() }}
+
+<!-- Добавьте заголовок страницы -->
+<title>Register</title>
 
 <div class="row">
     <!-- Левая колонка (Меню) -->
@@ -12,16 +15,16 @@
     </div>
 
     <!-- Правая колонка (Форма) -->
-    <div class="col-md-10">
+    <div>
         {% for cat, msg in get_flashed_messages(True) %}
         <div class="flash {{ cat }}">{{ msg }}</div>
         {% endfor %}
 
         <form action="{{ url_for('register_view') }}" method="post" class="form-contact">
-            <p><label>Name:</label><input type="text" name="name" value="" required /></p>
-            <p><label>E-mail:</label><input type="text" name="email" value="" required /></p>
-            <p><label>Password:</label><input type="text" name="psw" value="" required /></p>
-            <p><label>Password Repeat:</label><input type="text" name="psw2" value="" required /></p>
+            <p><label>Name:</label><input type="text" name="name" value="" required/></p>
+            <p><label>E-mail:</label><input type="text" name="email" value="" required/></p>
+            <p><label>Password:</label><input type="text" name="psw" value="" required/></p>
+            <p><label>Password Repeat:</label><input type="text" name="psw2" value="" required/></p>
             <p><input type="submit" value="Registration"></p>
         </form>
     </div>
