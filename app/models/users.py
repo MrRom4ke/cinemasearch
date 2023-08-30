@@ -24,3 +24,28 @@ class UsersRepo:
             print('Error of adding user in DB ' + str(e))
             return False
         return True
+
+    def get_user(self, user_id):
+        """Идентифекация текущего пользователя"""
+        try:
+            self.__cur.execute(f'SELECT * FROM users WHERE id = {user_id} LIMIT 1')
+            res = self.__cur.fetchone()
+            if not res:
+                print('User is not found')
+                return False
+            return res
+        except sqlite3.Error as e:
+            print('Error if getting data from DB ' + str(e))
+        return False
+
+    def get_user_by_email(self, email):
+        try:
+            self.__cur.execute(f'SELECT * FROM users WHERE email = "{email}" LIMIT 1')
+            res = self.__cur.fetchone()
+            if not res:
+                print('User not found')
+                return False
+            return res
+        except sqlite3.Error as e:
+            print('Error of getting data from DB ' + str(e))
+        return False
