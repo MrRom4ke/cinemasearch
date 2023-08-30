@@ -28,8 +28,8 @@ class UsersRepo:
     def get_user(self, user_id):
         """Идентифекация текущего пользователя"""
         try:
-            self.__cur.execute(f'SELECT * FROM users WHERE id = {user_id} LIMIT 1')
-            res = self.__cur.fetchone()
+            self.db.execute(f'SELECT * FROM users WHERE id = {user_id} LIMIT 1')
+            res = self.db.fetchone()
             if not res:
                 print('User is not found')
                 return False
@@ -40,8 +40,8 @@ class UsersRepo:
 
     def get_user_by_email(self, email):
         try:
-            self.__cur.execute(f'SELECT * FROM users WHERE email = "{email}" LIMIT 1')
-            res = self.__cur.fetchone()
+            self.db.execute(f'SELECT * FROM users WHERE email = "{email}" LIMIT 1')
+            res = self.db.fetchone()
             if not res:
                 print('User not found')
                 return False
