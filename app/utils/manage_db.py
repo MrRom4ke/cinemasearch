@@ -63,7 +63,15 @@ class DatabaseManager:
                 );
             ''')
 
-            # Выполнение других запросов
+            # Поиск фильмов
+            self.execute('''
+                CREATE TABLE IF NOT EXISTS films (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                category TEXT NOT NULL,
+                title TEXT NOT NULL,
+                url TEXT NOT NULL
+                );
+            ''')
 
             self.commit()
             self.close()
