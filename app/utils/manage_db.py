@@ -63,6 +63,18 @@ class DatabaseManager:
                 );
             ''')
 
+            # Создание таблицы аватара
+            self.execute('''
+                CREATE TABLE IF NOT EXISTS users(
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                name TEXT NOT NULL,
+                email TEXT NOT NULL,
+                psw TEXT NOT NULL,
+                avatar BLOB DEFAULT NULL,
+                time INTEGER NOT NULL
+                );
+            ''')
+
             # Выполнение других запросов
 
             self.commit()
