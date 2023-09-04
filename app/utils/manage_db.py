@@ -74,6 +74,7 @@ class DatabaseManager:
                 rating INTEGER NOT NULL,
                 category TEXT NOT NULL,
                 url TEXT NOT NULL,
+                trailer TEXT NOT NULL,
                 );
             ''')
 

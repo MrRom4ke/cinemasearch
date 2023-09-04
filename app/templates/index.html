@@ -15,27 +15,31 @@
         <!-- Первые 4 фильма -->
         <div class="carousel-item active">
             <div class="card-wrapper container-sm d-flex  justify-content-around">
-                <ul>
-                    {% for film in films %}
-                    <li>
-                    <a href="{{ film.url }}">{{ film.title }}
-                        <img src="static/image/img1.png"></a>
-                    </li>
-                    {% endfor %}
-                </ul>
+                {% for film in new %}
+                <div class="card">
+                    <a href="{{ film.url }}">
+                        <img src="{{ film.picture }}"
+                             alt="{{ film.title }}"></a>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ film.title }}</h5>
+                    </div>
+                </div>
+                {% endfor %}
             </div>
         </div>
         <!-- Вторые 4 фильма -->
         <div class="carousel-item">
             <div class="card-wrapper container-sm d-flex  justify-content-around">
-                <ul>
-                    {% for film in films %}
-                    <li>
-                    <a href="{{ film.url }}">{{ film.title }}
-                        <img src="static/image/img1.png"></a>
-                    </li>
-                    {% endfor %}
-                </ul>
+                {% for film in new %}
+                <div class="card">
+                    <a href="{{ film.url }}">
+                        <img src="{{ film.picture }}"
+                             alt="{{ film.title }}"></a>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ film.title }}</h5>
+                    </div>
+                </div>
+                {% endfor %}
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
@@ -58,14 +62,16 @@
     <div class="carousel-inner">
         <div class="carousel-item active">
             <div class="card-wrapper container-sm d-flex  justify-content-around">
-                <ul>
-                    {% for film in films %}
-                    <li>
-                    <a href="{{ film.url }}">{{ film.title }}
-                        <img src="static/image/img1.png"></a>
-                    </li>
-                    {% endfor %}
-                </ul>
+                {% for film in top %}
+                <div class="card">
+                    <a href="{{ film.url }}">
+                        <img src="{{ film.picture }}"
+                             alt="{{ film.title }}"></a>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ film.title }}</h5>
+                    </div>
+                </div>
+                {% endfor %}
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
@@ -87,14 +93,16 @@
     <div class="carousel-inner">
         <div class="carousel-item active">
             <div class="card-wrapper container-sm d-flex  justify-content-around">
-                <ul>
-                    {% for film in films %}
-                    <li>
-                    <a href="{{ film.url }}">{{ film.title }}
-                        <img src="static/image/img1.png"></a>
-                    </li>
-                    {% endfor %}
-                </ul>
+                {% for film in soon %}
+                <div class="card">
+                    <a href="{{ film.url }}">
+                        <img src="{{ film.picture }}"
+                             alt="{{ film.title }}"></a>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ film.title }}</h5>
+                    </div>
+                </div>
+                {% endfor %}
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
