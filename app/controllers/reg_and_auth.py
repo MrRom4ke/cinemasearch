@@ -14,3 +14,8 @@ def register_view():
             flash('Не все данные введены верно', 'error')
     return render_template('register.html', menu=g.menu_repo.get_menu(), title='Registration')
 
+
+def login_view():
+    """Обработчик страницы авторизации"""
+    pass
+

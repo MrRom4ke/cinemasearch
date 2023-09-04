@@ -4,6 +4,7 @@ from .utils.manage_db import DatabaseManager
 from .models.users import UsersRepo
 from .models.menu import MenuRepo
 from .routes import add_routes
+from flask_sqlalchemy import SQLAlchemy
 
 
 def create_app():
@@ -14,6 +15,10 @@ def create_app():
     """
     app = Flask(__name__, static_url_path='', template_folder='templates', static_folder='static')
     app.config.from_object(ConfigFlask)
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    database_users = SQLAlchemy(app)
+
 
     with app.app_context():
         # Добавляем маршруты
