@@ -5,6 +5,7 @@ from .models.users import UsersRepo
 from .models.menu import MenuRepo
 from .routes import add_routes
 from flask_sqlalchemy import SQLAlchemy
+from .models.database_users import Users
 
 
 def create_app():
@@ -17,7 +18,7 @@ def create_app():
     app.config.from_object(ConfigFlask)
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    database_users = SQLAlchemy(app)
+
 
 
     with app.app_context():
@@ -25,21 +26,24 @@ def create_app():
         add_routes(app)
 
         # Добавляем менеджер для работы с БД
-        manager_db = DatabaseManager(ConfigFlask.DATABASE_PATH)
+        db = SQLAlchemy(app)
 
         # Добавляем репозитории с объектом БД
-        users_repo = UsersRepo(manager_db)
-        menu_repo = MenuRepo(manager_db)
+        users_repo = UsersRepo(db)
+        menu_repo = MenuRepo(db)
+        database_users = Users(db)
+
 
         @app.before_request
         def before_request():
             """Установка соединения с БД перед запросом"""
             g.users_repo = users_repo
             g.menu_repo = menu_repo
+            g.database_users = database_users
 
         @app.teardown_appcontext
         def close_db(error):
             """Закрываем соединение с БД, если оно было установлено"""
-            manager_db.close()
+            db.close()
 
     return app
