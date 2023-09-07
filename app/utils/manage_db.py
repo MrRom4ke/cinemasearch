@@ -63,6 +63,21 @@ class DatabaseManager:
                 );
             ''')
 
+            # Поиск фильмов
+            self.execute('''
+                CREATE TABLE IF NOT EXISTS films (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                title TEXT NOT NULL,
+                year INTEGER NOT NULL,
+                director TEXT NOT NULL,
+                description TEXT NOT NULL,
+                rating INTEGER NOT NULL,
+                category TEXT NOT NULL,
+                url TEXT NOT NULL,
+                trailer TEXT NOT NULL,
+                );
+            ''')
+
             # Создание таблицы аватара
             self.execute('''
                 CREATE TABLE IF NOT EXISTS users(

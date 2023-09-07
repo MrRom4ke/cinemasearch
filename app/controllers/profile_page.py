@@ -6,10 +6,12 @@ from CinemaSearch.cinemasearch import app
 def profile_view():
     return render_template('profile.html')
 
+
 def logout_view():
     logout_user()
     flash('You are has been successfully logout', 'success')
     return redirect(url_for('login'))
+
 
 def userava_view():
     img = current_user.get_avatar(app)
@@ -19,6 +21,7 @@ def userava_view():
     h = make_response(img)
     h.headers['Content_Type'] = 'image/png'
     return h
+
 
 def upload_view():
     if request.method == 'POST':
