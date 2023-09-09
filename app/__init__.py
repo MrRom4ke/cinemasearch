@@ -15,18 +15,23 @@ def create_app():
     """
     app = Flask(__name__, static_url_path='', template_folder='templates', static_folder='static')
     app.config.from_object(ConfigFlask)
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+
 
     with app.app_context():
         # Добавляем маршруты
         add_routes(app)
 
         # Добавляем менеджер для работы с БД
-        manager_db = DatabaseManager(ConfigFlask.DATABASE_PATH)
+        db = SQLAlchemy(app)
 
         # Добавляем репозитории с объектом БД
         users_repo = UsersRepo(manager_db)
         menu_repo = MenuRepo(manager_db)
         film_repo = FilmRepo(manager_db)
+
 
         @app.before_request
         def before_request():
@@ -38,6 +43,6 @@ def create_app():
         @app.teardown_appcontext
         def close_db(error):
             """Закрываем соединение с БД, если оно было установлено"""
-            manager_db.close()
+            db.close()
 
     return app
