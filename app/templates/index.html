@@ -15,75 +15,94 @@
         <!-- Первые 4 фильма -->
         <div class="carousel-item active">
             <div class="card-wrapper container-sm d-flex  justify-content-around">
+                {% for film in new %}
                 <div class="card">
-                    <a href="https://hd.kinopoisk.ru/film/2c3ff245c64f4a1aaaf7b9e87dbcdcfb?source=kinopoisk_kp_main">
-                        <img src="//avatars.mds.yandex.net/get-ott/2439731/2a0000018a1970672ad15cfb9a224edebf10/220x330"
-                             alt="Джон Уик 4 боевик"></a>
+                    <a href="{{ film.url }}">
+                        <img src="{{ film.picture }}"
+                             alt="{{ film.title }}"></a>
                     <div class="card-body">
-                        <h5 class="card-title">Джон Уик 4</h5>
+                        <h5 class="card-title">{{ film.title }}</h5>
                     </div>
                 </div>
-                <div class="card">
-                    <a href="https://hd.kinopoisk.ru/film/45fd3f360cd64d7a8112ae31f30560e3?source=kinopoisk_kp_main">
-                        <img src="//avatars.mds.yandex.net/get-ott/1672343/2a00000189f8df05bee8074afab21c033f37/220x330"
-                             alt="Рубеж выживания фантастика"></a>
-                    <div class="card-body">
-                        <h5 class="card-title">Рубеж выживания</h5>
-                    </div>
-                </div>
-                <div class="card">
-                    <a href="https://hd.kinopoisk.ru/film/eaddb396a23f427fb6ffb6a91ca18d94?source=kinopoisk_kp_main">
-                        <img src="//avatars.mds.yandex.net/get-ott/1652588/2a0000018866f7157174d7f0e11ebdf0a6d0/220x330"
-                             alt="Кунг-фу жеребец комедия"></a>
-                    <div class="card-body">
-                        <h5 class="card-title">Кунг-фу жеребец</h5>
-                    </div>
-                </div>
-                <div class="card">
-                    <a href="https://hd.kinopoisk.ru/film/4e1205e0faf14d8593f1bf3bc2848a18?source=kinopoisk_kp_main">
-                        <img src="//avatars.mds.yandex.net/get-ott/374297/2a00000189418baaa2fa1c0f4b63fd6764e5/220x330"
-                             alt="Чудотворцы комедия"></a>
-                    <div class="card-body">
-                        <h5 class="card-title">Чудотворцы</h5>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
         <!-- Вторые 4 фильма -->
         <div class="carousel-item">
             <div class="card-wrapper container-sm d-flex  justify-content-around">
+                {% for film in new %}
                 <div class="card">
-                    <a href="https://hd.kinopoisk.ru/film/47649cf90de74aca8da7eb5b17fc8a8a?source=kinopoisk_kp_main">
-                        <img src="//avatars.mds.yandex.net/get-ott/212840/2a00000176f1807a2d92a3c7abd7f20807c1/220x330"
-                             alt="Джентльмены криминал"></a>
+                    <a href="{{ film.url }}">
+                        <img src="{{ film.picture }}"
+                             alt="{{ film.title }}"></a>
                     <div class="card-body">
-                        <h5 class="card-title">Джентльмены</h5>
+                        <h5 class="card-title">{{ film.title }}</h5>
                     </div>
                 </div>
+                {% endfor %}
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev" style="width: 50px; margin-left: -10px;">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next" style="width: 50px; margin-right: -10px;">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden"></span>
+        </button>
+    </div>
+</div>
+
+
+
+<h3>Топ-10</h3>
+<div class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="card-wrapper container-sm d-flex  justify-content-around">
+                {% for film in top %}
                 <div class="card">
-                    <a href="https://hd.kinopoisk.ru/film/4901b2e6dc7be0eda7432eedca82a783?source=kinopoisk_kp_main">
-                        <img src="//avatars.mds.yandex.net/get-ott/224348/2a00000176f1c778db725df3e7afcf8b99be/220x330"
-                             alt="Сверхъестественное"></a>
+                    <a href="{{ film.url }}">
+                        <img src="{{ film.picture }}"
+                             alt="{{ film.title }}"></a>
                     <div class="card-body">
-                        <h5 class="card-title">Сверхъестественное</h5>
+                        <h5 class="card-title">{{ film.title }}</h5>
                     </div>
                 </div>
+                {% endfor %}
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev" style="width: 50px; margin-left: -10px;">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next" style="width: 50px; margin-right: -10px;">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden"></span>
+        </button>
+    </div>
+</div>
+
+
+<h3>Скоро в кино</h3>
+<div class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="card-wrapper container-sm d-flex  justify-content-around">
+                {% for film in soon %}
                 <div class="card">
-                    <a href="https://hd.kinopoisk.ru/film/5cf7ff4d15c94ba7b0d0bccf61fe45bd?source=kinopoisk_kp_main">
-                        <img src="//avatars.mds.yandex.net/get-ott/212840/2a00000188dee8455604d0fc865a1b21be8c/220x330"
-                             alt="Переводчик"></a>
+                    <a href="{{ film.url }}">
+                        <img src="{{ film.picture }}"
+                             alt="{{ film.title }}"></a>
                     <div class="card-body">
-                        <h5 class="card-title">Переводчик</h5>
+                        <h5 class="card-title">{{ film.title }}</h5>
                     </div>
                 </div>
-                <div class="card">
-                    <a href="https://hd.kinopoisk.ru/film/4a462cbdb46a4fb1853d9cf359cff499?source=kinopoisk_kp_main">
-                        <img src="//avatars.mds.yandex.net/get-ott/200035/2a000001899ce490b7efe53abe258c00de0c/220x330"
-                             alt="На страже пляжа"></a>
-                    <div class="card-body">
-                        <h5 class="card-title">На страже пляжа</h5>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
@@ -99,4 +118,6 @@
     </div>
 </div>
 </body>
+
+
 {% endblock content %}
