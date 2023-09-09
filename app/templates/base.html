@@ -28,16 +28,15 @@
         <div class="dropdown ml-auto">
             <a href="#" class="d-flex align-items-center text-black text-decoration-none dropdown-toggle" id="cur_user"
                data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="static/image/not_auth_avatar" alt="" width="32" height="32" class="rounded-circle me-3">
+                <img src="static/image/not_auth_avatar.png" alt="" width="32" height="32" class="rounded-circle me-3">
                 <strong>Гость</strong>
             </a>
             <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><a class="dropdown-item" href="{{url_for('profile_view')}}">Profile</a></li>
                 <li>
                     <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="#">Sign out</a></li>
-                <!-- обработчиков на профиль и выход у меня нет -->
+                <li><a class="dropdown-item" href="{{url_for('logout_view')}}">Sign out</a></li>
             </ul>
         </div>
     </div>

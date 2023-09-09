@@ -5,6 +5,7 @@ from .models.users import UsersRepo
 from .models.menu import MenuRepo
 from .routes import add_routes
 from .models.films import FilmRepo
+from flask_sqlalchemy import SQLAlchemy
 
 
 def create_app():
@@ -28,9 +29,9 @@ def create_app():
         db = SQLAlchemy(app)
 
         # Добавляем репозитории с объектом БД
-        users_repo = UsersRepo(manager_db)
-        menu_repo = MenuRepo(manager_db)
-        film_repo = FilmRepo(manager_db)
+        users_repo = UsersRepo(db)
+        menu_repo = MenuRepo(db)
+        film_repo = FilmRepo(db)
 
 
         @app.before_request
